@@ -1,5 +1,4 @@
-// creating a new ViewModel
-var ViewModel = function() {
+var Dog = function () {
 	this.clickCount = ko.observable(0);
 	this.name = ko.observable('Corgi #1');
 	this.nickNames = ko.observableArray(["Perkins the Corgi", "Abigail the Border Collie with a Corgi sister", "Corgi Love #3", "Corgi Love #4", "Corgi Love #5"]);
@@ -11,31 +10,31 @@ var ViewModel = function() {
 			level = "Unborn puppy. Please click on picture to give birth to puppy.";
 			return level;
 		}
-		else if (this.clickCount() < 2) {
+		else if (this.clickCount() < 8) {
 			level = "1 year old puppy";
 			return level;
 		}
-		else if (this.clickCount() < 3) {
+		else if (this.clickCount() < 15) {
 			level = "2 year old puppy";
 			return level;
 		}
-		else if (this.clickCount() < 4) {
+		else if (this.clickCount() < 22) {
 			level = "3 year old puppy";
 			return level;
 		}
-		else if (this.clickCount() < 5) {
+		else if (this.clickCount() < 29) {
 			level = "4 year old puppy";
 			return level;
 		}
-		else if (this.clickCount() < 6) {
+		else if (this.clickCount() < 36) {
 			level = "5 year old puppy";
 			return level;
 		}
-		else if (this.clickCount() < 7) {
+		else if (this.clickCount() < 43) {
 			level = "6 year old puppy";
 			return level;
 		}
-		else if (this.clickCount() < 8) {
+		else if (this.clickCount() < 50) {
 			level = "7 year old puppy";
 			return level;
 		}
@@ -44,14 +43,18 @@ var ViewModel = function() {
 			return level;
 		};
 	},this);
+}
+
+// creating a new ViewModel
+var ViewModel = function() {
+	this.currentDog = ko.observable( new Dog() );
 // effectively what I have done below is the following:
 // 		var count = 0;
 // 		count++;
 	this.incrementCounter = function() {
-		this.clickCount(this.clickCount() + 1);
+		this.currentDog().clickCount(this.currentDog().clickCount() + 1);
 	};
 }
-
 // apply bindings in a new ViewModel
 ko.applyBindings(new ViewModel())
 
