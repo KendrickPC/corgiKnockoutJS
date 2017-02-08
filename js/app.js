@@ -3,7 +3,7 @@ var ViewModel = function() {
 	this.clickCount = ko.observable(0);
 	this.name = ko.observable('Corgi #1');
 	this.imgSrc = ko.observable('img/corgi1.jpg');
-	this.imgAttribution = ko.observable('http://www.google.com');
+	this.imgAttribution = ko.observable('http://www.images.google.com');
 // adding levels to my clickCount
 	this.level = ko.computed(function() {
 		if (this.clickCount() < 1) {
@@ -43,6 +43,7 @@ var ViewModel = function() {
 			return level;
 		};
 	},this);
+
 // effectively what I have done below is the following:
 // 		var count = 0;
 // 		count++;
@@ -50,6 +51,15 @@ var ViewModel = function() {
 		this.clickCount(this.clickCount() + 1);
 	};
 }
+
+	this.nickNames = ko.observableArray([
+    { nickName: "Perkins the Corgi" },
+    { nickName: "Abigail the Border Collie with a Corgi sister" },
+    { nickName: "Nana the Border Collie with a Corgi sister" },
+    { nickName: "Charles the Corgi" },
+    { nickName: "Brenda the Corgi" }
+]);
+
 // apply bindings in a new ViewModel
 ko.applyBindings(new ViewModel())
 
