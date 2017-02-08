@@ -47,12 +47,16 @@ var Dog = function () {
 
 // creating a new ViewModel
 var ViewModel = function() {
+	// wrote a function "that" to access my outer "this"
+	var that = this;
+
 	this.currentDog = ko.observable( new Dog() );
 // effectively what I have done below is the following:
 // 		var count = 0;
 // 		count++;
 	this.incrementCounter = function() {
-		this.currentDog().clickCount(this.currentDog().clickCount() + 1);
+		// calling in the inner "this"
+		that.currentDog().clickCount(that.currentDog().clickCount() + 1);
 	};
 }
 // apply bindings in a new ViewModel
