@@ -2,6 +2,7 @@
 var ViewModel = function() {
 	this.clickCount = ko.observable(0);
 	this.name = ko.observable('Corgi #1');
+	this.nickNames = ko.observableArray(["Perkins the Corgi", "Abigail the Border Collie with a Corgi sister", "Corgi Love #3", "Corgi Love #4", "Corgi Love #5"]);
 	this.imgSrc = ko.observable('img/corgi1.jpg');
 	this.imgAttribution = ko.observable('http://www.images.google.com');
 // adding levels to my clickCount
@@ -50,8 +51,7 @@ var ViewModel = function() {
 		this.clickCount(this.clickCount() + 1);
 	};
 }
-	this.nickNames = ko.observableArray(["Perkins the Corgi", "Abigail the Border Collie with a Corgi sister", "Corgi Love #3", "Corgi Love #4", "Corgi Love #5"
-]);
+
 // apply bindings in a new ViewModel
 ko.applyBindings(new ViewModel())
 
