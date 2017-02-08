@@ -43,7 +43,6 @@ var ViewModel = function() {
 			return level;
 		};
 	},this);
-
 // effectively what I have done below is the following:
 // 		var count = 0;
 // 		count++;
@@ -51,15 +50,8 @@ var ViewModel = function() {
 		this.clickCount(this.clickCount() + 1);
 	};
 }
-
-	this.nickNames = ko.observableArray([
-    { nickName: "Perkins the Corgi" },
-    { nickName: "Abigail the Border Collie with a Corgi sister" },
-    { nickName: "Nana the Border Collie with a Corgi sister" },
-    { nickName: "Charles the Corgi" },
-    { nickName: "Brenda the Corgi" }
+	this.nickNames = ko.observableArray(["Perkins the Corgi", "Abigail the Border Collie with a Corgi sister", "Corgi Love #3", "Corgi Love #4", "Corgi Love #5"
 ]);
-
 // apply bindings in a new ViewModel
 ko.applyBindings(new ViewModel())
 

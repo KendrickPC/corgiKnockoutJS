@@ -8,17 +8,18 @@
 <body>
     <!-- added data bindings to HTML -->
     <div>
-
         <h2 data-bind="text: name"></h2>
     <!-- added data bindings for 'level' -->
         <div data-bind="text: level"></div>
         <h5>Click Count</h5>
         <div data-bind="text: clickCount"></div>
         <img src="" data-bind="click: incrementCounter, attr: {src: imgSrc}" alt="adorable corgi">
-    <!-- added data bindings for nickName -->
+    <!-- added data bindings for nickNames -->
         <div><p>Nicknames:</p></div>
+    <!-- control flow foreach binding documentation below: 
+    http://knockoutjs.com/documentation/foreach-binding.html -->
         <div data-bind="foreach: nickNames">
-            <li data-bind="text: nickName"></li>
+            <li data-bind="text: $data"></li>
         </div>
     </div>
     <script src="js/lib/knockout-3.2.0.js"></script>
