@@ -8,43 +8,37 @@ var Dog = function () {
 	this.level = ko.computed(function() {
 		if (this.clickCount() < 1) {
 			level = "Unborn puppy. Please click on picture to give birth to puppy.";
-			return level;
+		}
+		else if (this.clickCount() < 7) {
+			level = "first year puppy";
 		}
 		else if (this.clickCount() < 8) {
 			level = "1 year old puppy";
-			return level;
 		}
 		else if (this.clickCount() < 15) {
 			level = "2 year old puppy";
-			return level;
 		}
 		else if (this.clickCount() < 22) {
 			level = "3 year old puppy";
-			return level;
 		}
 		else if (this.clickCount() < 29) {
 			level = "4 year old puppy";
-			return level;
 		}
 		else if (this.clickCount() < 36) {
 			level = "5 year old puppy";
-			return level;
 		}
 		else if (this.clickCount() < 43) {
 			level = "6 year old puppy";
-			return level;
 		}
 		else if (this.clickCount() < 50) {
 			level = "7 year old puppy";
-			return level;
 		}
 		else {
 			level = "Corgi puppy FOREVER!";
-			return level;
 		};
+		return level;
 	},this);
 }
-
 // creating a new ViewModel
 var ViewModel = function() {
 	// wrote a function "that" to access my outer "this"

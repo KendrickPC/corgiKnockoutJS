@@ -7,13 +7,13 @@
 </head>
 <body>
     <!-- added data bindings to HTML -->
-    <div data-bind="with:currentDog()">
+    <div data-bind="with: currentDog()">
         <h2 data-bind="text: name"></h2>
     <!-- added data bindings for 'level' -->
         <div data-bind="text: level"></div>
         <h5>Click Count</h5>
         <div data-bind="text: clickCount"></div>
-    <!-- use $parent to get out of current scope/binding context -->
+    <!-- use $parent to get out of current scope/binding context and bind it with the ViewModel -->
         <img src="" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}" alt="adorable corgi">
     <!-- added data bindings for nickNames -->
         <div><p>Nicknames:</p></div>
