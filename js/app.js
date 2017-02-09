@@ -1,17 +1,17 @@
 var initialDogs = [
         {
             clickCount : 0,
-            name : 'Corgi 1',
+            name : 'Perkins',
             imgSrc : 'img/corgi1.jpg',
             imgAttribution : 'https://www.images.google.com',
-            nickNames : ["Perkins the Corgi", "Abigail the Border Collie with a Corgi sister", "Corgi Love #3", "Corgi Love #4", "Corgi Love #5"]
+            nickNames : ["Perkins the Beast"]
         },
         {
             clickCount : 0,
-            name : 'Corgi 2',
+            name : 'Abigail',
             imgSrc : 'img/corgi2.jpg',
             imgAttribution : 'https://www.images.google.com',
-            nickNames : ['Tigger']
+            nickNames : ['Abigail Snail']
         },
         {
             clickCount : 0,
@@ -36,7 +36,6 @@ var initialDogs = [
         }
     ]
 // };
-
 var Dog = function (data) {
 	this.clickCount = ko.observable(data.clickCount);
 	this.name = ko.observable(data.name);
@@ -96,8 +95,8 @@ var ViewModel = function() {
 		that.currentDog().clickCount(that.currentDog().clickCount() + 1);
 	};
 
-	this.setDog = function() {
-		console.log('working');
+	this.setDog = function(clickedDog) {
+		that.currentDog(clickedDog);
 	};
 };
 // apply bindings in a new ViewModel
