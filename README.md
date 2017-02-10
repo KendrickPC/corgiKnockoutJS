@@ -33,6 +33,8 @@ this.nickNames = ko.observableArray(["Perkins the Corgi", "Abigail the Border Co
 [] Update the bindings in the HTML file.
 [] Update increment counter so that it can get the clickCount properly from the ViewModel. 
 
+[] Set imgSrc to width="620" height="420" as recommended by Google Chrome devmode audits. 
 
-
+The following tasks still need to be completed:
+- Add bootstrap to the code. 
 

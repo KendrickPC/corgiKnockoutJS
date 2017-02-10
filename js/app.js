@@ -15,27 +15,26 @@ var initialDogs = [
         },
         {
             clickCount : 0,
-            name : 'Corgi 3',
+            name : 'Brenda',
             imgSrc : 'img/corgi3.jpg',
             imgAttribution : 'https://www.images.google.com',
-            nickNames : ['Pooh']
+            nickNames : ['Ting-Ting']
         },
         {
             clickCount : 0,
-            name : 'Corgi 4',
+            name : 'Brady',
             imgSrc : 'img/corgi4.jpg',
             imgAttribution : 'https://www.images.google.com',
-            nickNames : ['Rabbit']
+            nickNames : ['GOAT']
         },
         {
             clickCount : 0,
-            name : 'Corgi 5',
+            name : 'Charles',
             imgSrc : 'img/corgi5.jpg',
             imgAttribution : 'https://www.images.google.com',
-            nickNames : ['Owl']
+            nickNames : ['Charlie Brown']
         }
     ]
-// };
 var Dog = function (data) {
 	this.clickCount = ko.observable(data.clickCount);
 	this.name = ko.observable(data.name);
@@ -45,7 +44,7 @@ var Dog = function (data) {
 // adding levels to my clickCount
 	this.level = ko.computed(function() {
 		if (this.clickCount() < 1) {
-			level = "Unborn puppy. Please click on picture to give birth to puppy.";
+			level = "Unborn puppy. Click on picture to give birth to the corgi puppy.";
 		}
 		else if (this.clickCount() < 7) {
 			level = "first year puppy";
@@ -71,6 +70,27 @@ var Dog = function (data) {
 		else if (this.clickCount() < 50) {
 			level = "7 year old puppy";
 		}
+		else if (this.clickCount() < 57) {
+			level = "8 year old puppy";
+		}
+		else if (this.clickCount() < 64) {
+			level = "9 year old puppy";
+		}
+		else if (this.clickCount() < 71) {
+			level = "10 year old puppy";
+		}
+		else if (this.clickCount() < 78) {
+			level = "11 year old puppy";
+		}
+		else if (this.clickCount() < 85) {
+			level = "12 year old puppy";
+		}
+		else if (this.clickCount() < 92) {
+			level = "13 year old puppy";
+		}
+		else if (this.clickCount() < 99) {
+			level = "14 year old puppy";
+		}
 		else {
 			level = "Corgi puppy FOREVER!";
 		}
@@ -79,32 +99,27 @@ var Dog = function (data) {
 }
 // creating a new ViewModel
 var ViewModel = function() {
-	// wrote a function "that" to access my outer "this"
-	var that = this;
-
+	// wrote a function "self" to access my inner "this"/local scope
+	// and separate it, for organizational purposes, from the outer scope/outer "this"
+	var self = this;
+	// accessing the outer "this"/global scope
 	this.dogList = ko.observableArray([]);
-
 	initialDogs.forEach(function(dogItem) {
-		that.dogList.push( new Dog(dogItem)	);
+	// accessing the inner "this"/local scope with "self"
+		self.dogList.push( new Dog(dogItem)	);
 	});
-
+	// accessing the outer "this"/global scope
 	this.currentDog = ko.observable(this.dogList() [0]	);
-
+	// accessing the outer "this"/global scope
 	this.incrementCounter = function() {
-		// calling in the inner "this"
-		that.currentDog().clickCount(that.currentDog().clickCount() + 1);
+		// calling in the inner "this"/local scope with "self"
+		self.currentDog().clickCount(self.currentDog().clickCount() + 1);
 	};
-
 	this.setDog = function(clickedDog) {
-		that.currentDog(clickedDog);
+		// calling the inner "this"/local scope with "self"
+		self.currentDog(clickedDog);
 	};
 };
-// apply bindings in a new ViewModel
+// Standard knockout call to apply bindings in a new ViewModel. 
+// The following binding should be placed at the beginning of the project.
 ko.applyBindings(new ViewModel())
-
-
-
-
-
-
-
